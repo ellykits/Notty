@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Notty</string>
+    <string name="title">Title</string>
+    <string name="content">Record things</string>
+    <string name="delete_note">Delete the selected note?</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <string name="update_note">Update</string>
+    <string name="delete_notty">Delete</string>
+    <string name="save_notty">Save</string>
+    <string name="save">Save</string>
+</resources>

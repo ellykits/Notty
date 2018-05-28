@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/note_coord_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/noteToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        >
+
+        <TextView
+            android:paddingBottom="2dp"
+            android:id="@+id/createdAtTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="2018-09-10 12:35:09" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/titleTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/titleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title"
+                android:paddingLeft="@dimen/activity_horizontal_width"
+                android:paddingRight="@dimen/activity_horizontal_width" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/contentTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="1000"
+            app:counterOverflowTextAppearance="@style/OverflowTextStyle">
+
+            <EditText
+                android:id="@+id/contentEditText"
+                style="@style/NoBackgroundText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/content"
+                android:inputType="textMultiLine"
+                android:paddingLeft="@dimen/activity_horizontal_width"
+                android:paddingRight="@dimen/activity_horizontal_width"
+                android:scrollHorizontally="false"
+                android:scrollbars="vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
