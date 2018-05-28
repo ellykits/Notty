@@ -65,13 +65,13 @@ public class NoteActivity extends AppCompatActivity implements INoteContract.IVi
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 
-        if (!isNewNote ) {
+        if (!isNewNote) {
             menu.findItem(R.id.delete_note).setVisible(true);
             menu.findItem(R.id.update_note).setVisible(false);
         }
 
         //Change menu for editing
-        if(isInEditMode){
+        if (isInEditMode) {
             menu.findItem(R.id.delete_note).setVisible(false);
             menu.findItem(R.id.update_note).setVisible(true);
         }
@@ -108,7 +108,7 @@ public class NoteActivity extends AppCompatActivity implements INoteContract.IVi
                     mNoteActivityManager.updateNote(id);
                     break;
             }
-        }else{
+        } else {
             switch (item.getItemId()) {
                 case R.id.save_note:
                     mNoteActivityManager.saveNote();
@@ -127,25 +127,26 @@ public class NoteActivity extends AppCompatActivity implements INoteContract.IVi
         contentTIL = findViewById(R.id.contentTIL);
         noteToolbar = findViewById(R.id.noteToolbar);
         setSupportActionBar(noteToolbar);
-
-        titleEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isInEditMode = true;
-                mNoteActivityManager.setupEditingMode();
-                titleEditText.requestFocus();
-                supportInvalidateOptionsMenu();
-            }
-        });
-        contentEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isInEditMode=true;
-                mNoteActivityManager.setupEditingMode();
-                contentEditText.requestFocus();
-                supportInvalidateOptionsMenu();
-            }
-        });
+        if (!isNewNote) {
+            titleEditText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    isInEditMode = true;
+                    mNoteActivityManager.setupEditingMode();
+                    titleEditText.requestFocus();
+                    supportInvalidateOptionsMenu();
+                }
+            });
+            contentEditText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    isInEditMode = true;
+                    mNoteActivityManager.setupEditingMode();
+                    contentEditText.requestFocus();
+                    supportInvalidateOptionsMenu();
+                }
+            });
+        }
         //Allow back navigation
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
